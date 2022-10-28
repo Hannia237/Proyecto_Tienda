@@ -144,4 +144,22 @@ public class ProductosServiceImpl implements IProductosService {
 		
 	}
 
+	@Override
+	public void guardar(Producto producto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Producto> buscarOferta() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void eliminar(Integer idProducto) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

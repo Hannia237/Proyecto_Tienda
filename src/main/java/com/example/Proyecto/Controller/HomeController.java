@@ -38,10 +38,10 @@ public class HomeController {
 		return "/Categoria-Telefonos";
 	}
 	
-	@GetMapping("/formulario-categorias")
+	@GetMapping("/form-categorias")
 	public String form(Model model) {
 		
-		return "/formulario-categorias";
+		return "/form-categorias";
 	}
 	
 	@GetMapping("/mensaje-form")
