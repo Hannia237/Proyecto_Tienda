@@ -5,11 +5,9 @@
                 <div class="col-md-8">
                     <div class="user-menu">
                         <ul>
-                            <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
-                            <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
-                            <li><a href="cart.html"><i class="fa fa-user"></i> My Cart</a></li>
-                            <li><a href="checkout.html"><i class="fa fa-user"></i> Checkout</a></li>
-                            <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
+                            <li><a href="#"><i class="fa fa-user"></i> Mi cuenta</a></li>
+                            <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Mi carrito</a></li>
+                            <li><a href="#"><i class="fa fa-user"></i>Inicar sesión</a></li>
                         </ul>
                     </div>
                 </div>
@@ -46,7 +44,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="logo">
-                        <h1><a href="/index.html"><img src="img/logo.png"></a></h1>
+                        <h1><a href="/index.html"><img th:src="@{/img/logo.png}"></a></h1>
                     </div>
                 </div>
                 
@@ -72,14 +70,13 @@
                 </div> 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="/index.html">Home</a></li>
-                        <li><a href="">Shop page</a></li>
-                        <li><a href="">Single product</a></li>
-                        <li><a href="">Cart</a></li>
-                        <li><a href="">Checkout</a></li>
-                        <li><a href="#">Category</a></li>
-                        <li><a href="#">Others</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="#">Carrito</a></li>
+                        <li><a href="#">Otros</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a th:href="@{/categorias/index}">Categoria</a></li>
+                        
+                        
                     </ul>
                 </div>  
             </div>
