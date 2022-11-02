@@ -32,9 +32,24 @@
   <header th:insert="fragments/header :: menu-principal"> </header>
  
   <!-- Main jumbotron for a primary marketing message or call to action -->
-      
-    
-    
+      <div class="jumbotron">
+        <div class="container">
+          <h3>Encuentra el producto que andas buscando.</h3>
+          Puedes buscar por descripción y categoría.
+          <form class="form-inline" th:action="@{/search}" method="get" th:object="${search}">
+            <input type="text" class="form-control" style='height: 4rem' th:field="*{descripcion}" placeholder="Escriba una búsqueda">&nbsp;
+            <select th:field="*{categoria.id}" style='height: 4rem' class="form-control" >
+              <option th:value="${null}" selected>Seleccione una categoría</option>
+              <option th:each="categoria : ${categorias}"
+              		  th:value="${categoria.id}"
+              		  th:text="${categoria.nombre}"></option>
+              
+            </select>&nbsp;
+            <button type="submit" class="btn btn-primary mb-3">Buscar</button>
+          </form>
+        </div>
+      </div>
+      <hr>
     
 <footer th:insert="fragments/footer :: pie-pagina" class="footer">
 

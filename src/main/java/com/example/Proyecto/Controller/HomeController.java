@@ -114,6 +114,20 @@ public class HomeController {
 		 return "redirect:/usuarios/index";
 	}
 	
+	@GetMapping("/search")
+	public String buscar(@ModelAttribute("search") Producto producto, Model model) {
+		System.out.println("Buscando por : " + producto);
+		
+		ExampleMatcher matcher = ExampleMatcher.
+				// where descripcion like '%?%'
+				matching().withMatcher("descripcion", ExampleMatcher.GenericPropertyMatchers.contains());
+		
+		Example<Producto> example = Example.of(producto, matcher);
+		List<Producto> lista = serviceProductos.buscarByExample(example);
+		model.addAttribute("productos", lista);
+		return "index";
+	}
+	
 	@GetMapping("/login" )
 	public String mostrarLogin() {
 		return "formLogin";
