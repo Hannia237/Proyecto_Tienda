@@ -1,10 +1,86 @@
-<!DOCTYPE html>
+<!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" th:href="@{/images/LogoTareasCabecera.png}">
 
-</body>
+    <title>EmpleosApp | Listado de Ofertas de Trabajo</title>
+    <!-- Bootstrap core CSS -->
+  <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+    
+    <!-- Bootstrap -->
+ 	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+   
+    <!-- Font Awesome -->
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" th:href="@{/css/owl.carousel.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/responsive.css}">
+    <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <header th:insert="fragments/header :: menu-principal"> </header>
+    <main role="main">     
+      <hr>
+<div class="container"> 
+
+        <div class="card">
+          <h4 class="card-header"><strong>Listado de Productos</strong></h4>              
+          <div class="card-body">
+            <a class="btn btn-primary" th:href="@{/productos/create}" title="Crear nueva Oferta de Trabajo" role="button"><i class="fas fa-file" aria-hidden="true"></i> Nueva</a>            
+            <hr>
+            <div th:if="${msg != null}" class='alert alert-success' th:text="${msg}" role='alert'></div>
+            <table class="table table-hover">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Categoría</th>
+                  <th scope="col">Producto</th> 
+                  <th scope="col">Modelo</th>                  
+                  <th scope="col">Oferta</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Operaciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="producto : ${productos}">
+                <td th:text="${producto.categoria.nombre}"></td>
+                  <td th:text="${producto.nombre}"></td>
+                  <td th:text="${producto.marca}"></td>  
+                  <td class="" th:text="${producto.oferta== 1 ? 'SI' : 'NO'}"></td>
+                  
+                  <td th:text="${producto.precio}"></td>             
+               
+               <!--    <td th:text="${vacante.destacado==1 ? 'SI' : 'NO' }"></td>--> 
+                  <td>
+                     <a th:href="@{/productos/edit/{id} (id=${producto.id}) }" class="btn btn-success btn-sm" role="button" title="Editar el registro."><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
+                    <a th:href="@{/productos/delete/{id} (id=${producto.id}) }" onclick="return confirm('¿Estas seguro?')" class="btn btn-success btn-sm" role="button" title="Eliminar el registro."><i class="fas fa-trash" aria-hidden="true"></i></a>
+                    
+                  </td>
+                </tr>                                              
+              </tbody>
+            </table>
+            
+          </div>
+        </div>
+      </div> <!-- /container -->
+
+    </main>
+
+<footer th:insert="fragments/footer :: pie-pagina" class="footer"></footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>       
+  </body>
 </html>

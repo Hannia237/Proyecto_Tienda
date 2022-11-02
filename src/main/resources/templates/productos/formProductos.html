@@ -54,8 +54,8 @@
                              <h3>Agregar nuevo Producto</h3>
                              
                              <div>
-                                 <label for="nombre">Nombre </label>
-                                 <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre del producto" required="required">
+                                 <label for="nombre">Nombre del producto </label>
+                                 <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej. Samsung" required="required">
                              </div>
 
                              <div>
@@ -85,15 +85,18 @@
                              <div class="shipping_address" style="display: block;">
                                    
                                    <div>
-                                       <label for="marca">Marca</label>
-                                       <input type="text" class="form-control" placeholder="Marca del producto" id="marca" name="marca" required="required">
+                                       <label for="marca">Modelo</label>
+                                       <input type="text" class="form-control" placeholder="Ej. S5-2015" id="marca" name="marca" required="required">
                                    </div>
 
-                                   <div>
-                                       <label for="categoria">Categoría</label>
-                                       <input type="text" value="" placeholder="" id="shipping_last_name" name="shipping_last_name" class="input-text ">
-                                   </div>
-                                   
+                                   		<label for="categoria">Categoría</label>
+                                       <select style='height: 5.3rem' class="form-control" th:field="*{categoria.id}">
+                                       <option th:each="categoria : ${categorias}" 
+                      					th:value="${categoria.id}" 
+                     					th:text="${categoria.nombre}"></option>
+                     					</select>
+                                      
+                             
                                    <div>
                                        <label for="archivoImagen">Imagen</label>
                                        <input type="file" class="form-control-file" name="archivoImagen" id="archivoImagen">
@@ -107,8 +110,20 @@
                                </div>
 
                            </div>
+                           
+                           
+                        <div class="container">  
+                    <div class="form-check">
+                    <label class="form-check-label" for="oferta0"></label><br>
+                    <input class="form-check-input" type="radio" name="oferta" th:field="*{oferta}" id="oferta" value="1" checked="checked">
+                    <label class="form-check-label" for="oferta1">Está en Oferta</label>         
+                    <input class="form-check-input" type="radio" name="oferta" th:field="*{oferta}" id="oferta" value="0">
+                    <label class="form-check-label" for="oferta2">No está en oferta</label>
+                  </div>
+                  </div>
+                
 
-<br>
+<hr>
                               <button type="submit" title="Guardar el registro." class="btn btn-primary">Guardar</button>
                            
                            <div class="clear"></div>
