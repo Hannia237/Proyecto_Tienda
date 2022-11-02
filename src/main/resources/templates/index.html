@@ -32,7 +32,42 @@
   <header th:insert="fragments/header :: menu-principal"> </header>
  
   <!-- Main jumbotron for a primary marketing message or call to action -->
-      
+      <div class="jumbotron">
+        <div class="container">
+          <h3>Encuentra el producto que andas buscando.</h3>
+          Puedes buscar por descripción y categoría.
+          <form class="form-inline" th:action="@{/search}" method="get" th:object="${search}">
+            <input type="text" class="form-control" style='height: 4rem' th:field="*{descripcion}" placeholder="Escriba una búsqueda">&nbsp;
+            <select th:field="*{categoria.id}" style='height: 4rem' class="form-control" >
+              <option th:value="${null}" selected>Seleccione una categoría</option>
+              <option th:each="categoria : ${categorias}"
+              		  th:value="${categoria.id}"
+              		  th:text="${categoria.nombre}"></option>
+              
+            </select>&nbsp;
+            <button type="submit" class="btn btn-primary mb-3">Buscar</button>
+          </form>
+        </div>
+      </div>
+      <hr>
+    
+   <div class="container"> 
+        <h2 class="font-weight-bold text-center text-capitalize">OFERTAS</h2>
+        <hr>
+        <div class="row" th:each="producto : ${productos}">
+          <div class="col-md-3">            
+            <img class="rounded mx-auto d-block" th:src="@{/logos/{img} (img=${producto.imagen} ) }" alt="Generic placeholder image" width="220" height="220">            
+          </div>
+          <div class="col-md-9">
+            <h2 th:text="${producto.nombre}"></h2>
+            <h6 class="card-title"><strong>Categoría: </strong> <span th:text="${producto.categoria.nombre}"></span></h6>               
+            <p th:text="${producto.descripcion}"></p>
+            <p><a class="btn btn-secondary" th:href="@{/producto/view/{id} (id=${producto.id})  }" role="button">Detalles &raquo;</a></p>            
+          </div>
+        </div>  
+                 
+		  <hr>	
+      </div> <!-- /container -->
     
     
     
