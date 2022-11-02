@@ -1,7 +1,5 @@
 package com.example.Proyecto.model;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,10 +7,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
-@Table(name="productos")
+@Table(name="Productos")
 public class Producto {
 
 	@Id
@@ -99,8 +96,6 @@ public class Producto {
 		this.categoria = categoria;
 	}
 
-
-
 	@Override
 	public String toString() {
 		return "Producto [id=" + id + ", producto=" + producto + ", marca=" + marca + ", descripcion=" + descripcion
@@ -115,6 +110,11 @@ public class Producto {
 
 	public void setMarca(String marca) {
 		this.marca = marca;
+	}
+
+
+	public void reset() {
+		this.imagen=null;
 	}
 	
 }

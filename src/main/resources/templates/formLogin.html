@@ -31,46 +31,32 @@
   </head>
   <body>
   <header th:insert="fragments/header :: menu-principal"> </header>
-
-    
-
-    <main role="main">     
+  
+  	<main role="main">     
       <hr>
       <div class="container"> 
 
         <div class="card">
-          <h4 class="card-header"><strong>Formulario de registro</strong></h4>              
           <div class="card-body">
-            <form th:action="@{/signup}" th:object="${usuario}" method="post">              
+            <form th:action="@{/login}" method="post" class="form-signin">
               <div class="row">
-                <div class="col-md-3"> 
-                  <div class="form-group">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control" th:field="*{nombre}" id="nombre" name="nombre" placeholder="Escriba su nombre" required="required">
-                  </div>
+                <div class="col-md-4"> 
+                </div>  
+                <div class="col-md-4"> 
+                  <img class="mb-4 rounded mx-auto d-block" th:src="@{/img/lock.png}" alt="" width="128" height="128">
+                  <h4 class="h3 mb-3 font-weight-normal">Ingresar</h4>
+                  
+                  <label for="username" class="sr-only">Username</label>
+                  <input type="text" name="username" id="username" class="form-control" placeholder="Username" required autofocus><br>
+                  <label for="password" class="sr-only">Password</label>
+                  <input type="password" name="password" id="password" class="form-control" placeholder="Password" required><br>
+                  <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+                  <p class="text-primary" style="font-size: small">¿Todavía no estas registrado? <a>Regístrate</a></p>
+                  
                 </div>
-                <div class="col-md-3"> 
-                  <div class="form-group">
-                    <label for="email">Correo electrónico</label>
-                    <input type="email" class="form-control" th:field="*{email}" id="email" name="email" placeholder="Escriba su correo electrónico" required="required">
-                  </div> 
-                </div>    
-                <div class="col-md-3"> 
-                  <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" class="form-control" th:field="*{username}" id="username" name="username" placeholder="Escriba su nombre de usuario" required="required">
-                  </div>
+                <div class="col-md-4"> 
                 </div>
-                <div class="col-md-3"> 
-                  <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" th:field="*{password}" id="password" name="password" placeholder="Escriba su clave de acceso" required="required">
-                  </div>
-                </div>
-                <button type="submit" title="Quiero registrarme." class="btn btn-primary">Registrarse</button> 
-              </div>                  
-              <hr>
-              
+              </div>   
             </form>
           </div>
         </div>

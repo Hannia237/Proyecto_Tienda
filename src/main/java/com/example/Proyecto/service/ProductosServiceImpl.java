@@ -3,6 +3,7 @@ package com.example.Proyecto.service;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import com.example.Proyecto.model.Producto;
@@ -127,11 +128,6 @@ public class ProductosServiceImpl implements IProductosService {
 	}
 	
 	@Override
-	public List<Producto> buscarTodos() {
-		return lista;
-	}
-	
-	@Override
 	public Producto buscarPorId(Integer idProducto) {
 		
 		for (Producto p : lista) {
@@ -151,15 +147,24 @@ public class ProductosServiceImpl implements IProductosService {
 	}
 
 	@Override
-	public List<Producto> buscarOferta() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Producto> buscarOferta() {return null;
 	}
 
 	@Override
 	public void eliminar(Integer idProducto) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public List<Producto> buscarTodas() {
+		return lista;
+	}
+
+	@Override
+	public List<Producto> buscarByExample(Example<Producto> example) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

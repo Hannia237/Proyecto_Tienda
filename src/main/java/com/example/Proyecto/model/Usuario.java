@@ -1,6 +1,3 @@
-/**
- * Esta clase representa una entidad (un registro) en la tabla de Usuarios de la base de datos
- */
 package com.example.Proyecto.model;
 
 import java.util.Date;
@@ -35,9 +32,6 @@ public class Usuario {
 			   inverseJoinColumns = @JoinColumn(name="idPerfil")			
 			)
 	private List<Perfil> perfiles;
-	
-	
-	
 	
 	public void agregar(Perfil tempPerfil) {
 		if (perfiles == null) {

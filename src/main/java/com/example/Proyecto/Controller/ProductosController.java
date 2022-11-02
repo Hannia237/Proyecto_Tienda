@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,32 +27,24 @@ import com.example.Proyecto.service.ICategoriasService;
 import com.example.Proyecto.service.IProductosService;
 import com.example.Proyecto.util.Utileria;
 
-
-
-
-
 @Controller
 @RequestMapping("/productos")
 public class ProductosController {
-	
 
-	//@Value("empleos.ruta.imagenes")
-	//private String ruta;
+	@Value("${tiendaapp.ruta.imagenes}")
+	private String ruta;
 	
 	@Autowired
 	private IProductosService serviceProductos;
 	
 	@Autowired
 	private ICategoriasService serviceCategorias;
-	
-	
-	
-	
+
 	@GetMapping("/index")
 	public String mostrarIndex(Model model) {
 		List<Producto> lista = serviceProductos.buscarTodas();
     	model.addAttribute("productos", lista);
-		return "productos/listProductos";
+		return "productos/ListProductos";
 	}
 	
 	@GetMapping("/create")
@@ -71,8 +64,6 @@ public class ProductosController {
 		}
 		
 		if (!multiPart.isEmpty()) {
-			//tring ruta = "/empleos/img-vacantes"; //Linux/Mac
-			String ruta = "c:/empleos/img-vacantes/"; //Windows
 			
 			String nombreImagen = Utileria.guardarArchivo(multiPart, ruta);
 			if (nombreImagen != null) {//La imagen si se sibió
@@ -85,7 +76,7 @@ public class ProductosController {
 		attributes.addFlashAttribute("msg", "Registro Guardado");
 
 			
-		System.out.println("Vacante: " + producto);		
+		System.out.println("Producto: " + producto);		
 		return "redirect:/productos/index"; 
 	}
 	/*
@@ -104,16 +95,16 @@ public class ProductosController {
 	}
 	*/
 	@GetMapping("/delete/{id}")
-	public String eliminar(@PathVariable("id") int idVacante, RedirectAttributes attributes) {
-		System.out.println("Borrando vacante con id: " + idVacante);
-		serviceProductos.eliminar(idVacante);
-		attributes.addFlashAttribute("msg", "La vacante fue eliminada");
+	public String eliminar(@PathVariable("id") int idProducto, RedirectAttributes attributes) {
+		System.out.println("Borrando producto con id: " + idProducto);
+		serviceProductos.eliminar(idProducto);
+		attributes.addFlashAttribute("msg", "El producto fue eliminada");
 		return "redirect:/productos/index";
 	}
 	@GetMapping("/edit/{id}")
-	public String editar(@PathVariable("id")int idVacante, Model model) {
-		Producto producto = serviceProductos.buscarPorId(idVacante);
-		model.addAttribute("vacante", producto);
+	public String editar(@PathVariable("id")int idProducto, Model model) {
+		Producto producto = serviceProductos.buscarPorId(idProducto);
+		model.addAttribute("producto", producto);
 		
 		return "productos/formProductos";
 	}

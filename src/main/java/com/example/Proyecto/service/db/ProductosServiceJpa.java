@@ -12,8 +12,6 @@ import com.example.Proyecto.model.Producto;
 import com.example.Proyecto.repository.ProductosRepository;
 import com.example.Proyecto.service.IProductosService;
 
-
-
 @Service
 @Primary
 public class ProductosServiceJpa implements IProductosService {
@@ -43,11 +41,7 @@ public class ProductosServiceJpa implements IProductosService {
 		productosRepo.save(producto);
 	}
 
-	//@Override
-	//public List<Vacante> buscarDestacadas() {
-		
-	//	return vacantesRepo.findByDestacadoAndEstatusOrderByIdDesc(1, "Aprobada");
-	//}
+	
 
 	@Override
 	public void eliminar(Integer idProducto) {
@@ -58,13 +52,11 @@ public class ProductosServiceJpa implements IProductosService {
 
 	@Override
 	public List<Producto> buscarByExample(Example<Producto> example) {
-		// TODO Auto-generated method stub
 		return productosRepo.findAll(example);
 	}
 
 	@Override
 	public List<Producto> buscarOferta() {
-		// TODO Auto-generated method stub
 		return productosRepo.findByOferta(1);
 	}
 

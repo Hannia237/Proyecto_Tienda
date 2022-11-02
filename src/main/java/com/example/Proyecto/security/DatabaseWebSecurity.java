@@ -45,11 +45,11 @@ public class DatabaseWebSecurity extends WebSecurityConfigurerAdapter {
 		"/signup",
 		"/search",
 		"/bcrypt/**",
-		"/vacantes/view/**").permitAll()
+		"/productos/view/**").permitAll()
 	
 	
 	// Asignar permisos a URLs por ROLES
-	.antMatchers("/vacantes/**").hasAnyAuthority("SUPERVISOR","ADMINISTRADOR")
+	.antMatchers("/productos/**").hasAnyAuthority("SUPERVISOR","ADMINISTRADOR")
 	.antMatchers("/categorias/**").hasAnyAuthority("SUPERVISOR","ADMINISTRADOR")
 	.antMatchers("/usuarios/**").hasAnyAuthority("ADMINISTRADOR")
 	

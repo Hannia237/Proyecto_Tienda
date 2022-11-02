@@ -55,18 +55,37 @@
                              
                              <div>
                                  <label for="nombre">Nombre del producto </label>
-                                 <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej. Samsung" required="required">
+                                 <input type="hidden" th:field="*{id}" >
+                    			 <input type="hidden" th:field="*{imagen}" >
+                                 <input type="text" class="form-control" th:field="*{nombre}" id="nombre" name="nombre" placeholder="Ej. Samsung" required="required">
                              </div>
 
                              <div>
                                  <label for="precio">Precio</label>
-                                 <input type="text" class="form-control" placeholder="Precio del producto" id="precio" name="precio" required="required">
+                                 <input type="text" class="form-control" placeholder="Precio del producto" th:field="*{precio}" id="precio" name="precio" required="required">
                              </div>
+                           
+                           <label for="categoria">Categoría</label>
+                           		<select style='height: 5.3rem' class="form-control" th:field="*{categoria.id}">
+                                       <option th:each="categoria : ${categorias}" 
+                      					th:value="${categoria.id}" 
+                     					th:text="${categoria.nombre}"></option>
+                     	    	</select>
                              
                               <div>
                                      <label for="descripcion">Descripción </label>
-                                     <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Breve descripcion del Producto" required="required">
+                                     <input type="text" class="form-control" th:field="*{descripcion}" id="descripcion" name="descripcion" placeholder="Breve descripcion del Producto" required="required">
                               </div>
+                              
+                              <div class="container">  
+                    			<div class="form-check">
+                    				<label class="form-check-label" for="oferta0"></label><br>
+                    				<input class="form-check-input" type="radio" name="oferta" th:field="*{oferta}" id="oferta" value="1" checked="checked">
+                    				<label class="form-check-label" for="oferta1">Está en Oferta</label>         
+                    				<input class="form-check-input" type="radio" name="oferta" th:field="*{oferta}" id="oferta" value="0">
+                    				<label class="form-check-label" for="oferta2">No está en oferta</label>
+                 			   </div>
+                  		    </div>
                               
                              <div class="clear"></div>
 
@@ -86,21 +105,18 @@
                                    
                                    <div>
                                        <label for="marca">Modelo</label>
-                                       <input type="text" class="form-control" placeholder="Ej. S5-2015" id="marca" name="marca" required="required">
+                                       <input type="text" class="form-control" placeholder="Ej. S5-2015" th:field="*{marca}" id="marca" name="marca" required="required">
                                    </div>
-
-                                   		<label for="categoria">Categoría</label>
-                                       <select style='height: 5.3rem' class="form-control" th:field="*{categoria.id}">
-                                       <option th:each="categoria : ${categorias}" 
-                      					th:value="${categoria.id}" 
-                     					th:text="${categoria.nombre}"></option>
-                     					</select>
-                                      
                              
                                    <div>
                                        <label for="archivoImagen">Imagen</label>
                                        <input type="file" class="form-control-file" name="archivoImagen" id="archivoImagen">
                                    </div>
+                                   
+                                   <div>
+                  						<label for="imagen">Imagen/Logo</label>
+                  							<img class="rounded mx-auto d-block" th:src="@{/logos/{img} (img=${producto.imagen}) }" alt="Generic placeholder image" width="200" height="200">            
+               					   </div>
                                    
                                    <div class="clear"></div>
 
@@ -110,17 +126,7 @@
                                </div>
 
                            </div>
-                           
-                           
-                        <div class="container">  
-                    <div class="form-check">
-                    <label class="form-check-label" for="oferta0"></label><br>
-                    <input class="form-check-input" type="radio" name="oferta" th:field="*{oferta}" id="oferta" value="1" checked="checked">
-                    <label class="form-check-label" for="oferta1">Está en Oferta</label>         
-                    <input class="form-check-input" type="radio" name="oferta" th:field="*{oferta}" id="oferta" value="0">
-                    <label class="form-check-label" for="oferta2">No está en oferta</label>
-                  </div>
-                  </div>
+
                 
 
 <hr>
