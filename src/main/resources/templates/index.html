@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" th:href="@{/images/LogoTareasCabecera.png}">
+     <link rel="icon" th:href="@{/img/LogoTareasCabecera.png}">
 
-    <title>Home</title>
+    <title>Ustora | Página principal</title>
     <!-- Bootstrap core CSS -->
   <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
@@ -32,7 +32,7 @@
   <header th:insert="fragments/header :: menu-principal"> </header>
  
   <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="jumbotron">
+      <div class="jumbotron ">
         <div class="container">
           <h3>Encuentra el producto que andas buscando.</h3>
           Puedes buscar por descripción y categoría.
@@ -51,23 +51,154 @@
       </div>
       <hr>
     
+    <div class="maincontent-area" >
+     <div class="zigzag-bottom"></div>
    <div class="container"> 
-        <h2 class="font-weight-bold text-center text-capitalize">OFERTAS</h2>
-        <hr>
-        <div class="row" th:each="producto : ${productos}">
-          <div class="col-md-3">            
-            <img class="rounded mx-auto d-block" th:src="@{/logos/{img} (img=${producto.imagen} ) }" alt="Generic placeholder image" width="220" height="220">            
+   <div class="row">
+   <div class="col-md-12">
+    <div class="latest-product">
+        <h2 class="section-title">Ofertas</h2>
+       <hr>
+        <div class="product-carousel">
+        <div class="single-product" th:each="producto : ${productos}">
+          <div class="product-f-image">            
+            <img class="" th:src="@{/logos/{img} (img=${producto.imagen} ) }" alt="Generic placeholder image" width="220" height="220">
+            
+              <div class="product-hover">
+                       
+                  <a class="view-details-link" th:href="@{/productos/view/{id} (id=${producto.id})  }" role="button"><i class="fa fa-link"></i>Ver detalles</a>                      
+                 
+              </div>          
           </div>
-          <div class="col-md-9">
-            <h2 th:text="${producto.nombre}"></h2>
-            <h6 class="card-title"><strong>Categoría: </strong> <span th:text="${producto.categoria.nombre}"></span></h6>               
-            <p th:text="${producto.descripcion}"></p>
-            <p><a class="btn btn-secondary" th:href="@{/producto/view/{id} (id=${producto.id})  }" role="button">Detalles &raquo;</a></p>            
-          </div>
+          
+            <h2 th:text="${producto.nombre}"><a></a></h2>
+           <!--   <h6 class="card-title"><strong>Categoría: </strong> <span th:text="${producto.categoria.nombre}"></span></h6>               
+            <p th:text="${producto.descripcion}"></p>-->
+                     
+       		<div class="product-carousel-price">
+                 <ins th:text="'$'+ ${producto.precio}">$700.00</ins>
+                 <div class="product-wid-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+            </div>
         </div>  
                  
-		  <hr>	
+		
+		  </div>
+		  </div> 
+		  </div> 
+		  </div> 
+		  </div> 
       </div> <!-- /container -->
+      <div class="latest-product">
+       <hr> <h2 class="section-title">Más</h2>
+       
+    </div>
+     <div class="brands-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="brand-wrapper">
+                        <div class="brand-list">
+                            <img src="img/brand1.png" alt="">
+                            <img src="img/brand2.png" alt="">
+                            <img src="img/brand3.png" alt="">
+                            <img src="img/brand4.png" alt="">
+                            <img src="img/brand5.png" alt="">
+                            <img src="img/brand6.png" alt="">
+                            <img src="img/brand1.png" alt="">
+                            <img src="img/brand2.png" alt="">                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- marcas -->
+                            
+        <div class="slider-area">
+        	<!-- Slider -->
+			<div class="block-slider block-slider4">
+				<ul class="" id="bxslider-home4">
+					<li>
+						<img src="img/h4-slide.png" alt="Slide">
+						<div class="caption-group">
+							<h2 class="caption title">
+								iPhone <span class="primary">6 <strong>Plus</strong></span>
+							</h2>
+							<h4 class="caption subtitle">Dual SIM</h4>
+							<a class="caption button-radius" href="#"><span class="icon"></span>Compra ahora</a>
+						</div>
+					</li>
+					<li><img src="img/h4-slide2.png" alt="Slide">
+						<div class="caption-group">
+							<h2 class="caption title">
+							Consigue una, <span class="primary">50% <strong>de descuento</strong></span>
+							</h2>
+							<h4 class="caption subtitle">Articulos escolares & mochilas.*</h4>
+							<a class="caption button-radius" href="#"><span class="icon"></span>Compra ahora</a>
+						</div>
+					</li>
+					<li><img src="img/h4-slide3.png" alt="Slide">
+						<div class="caption-group">
+							<h2 class="caption title">
+								Apple <span class="primary">Store <strong>Ipad</strong></span>
+							</h2>
+							<h4 class="caption subtitle">Seleccione un artículo</h4>
+							<a class="caption button-radius" href="#"><span class="icon"></span>Compra ahora</a>
+						</div>
+					</li>
+					<li><img src="img/h4-slide4.png" alt="Slide">
+						<div class="caption-group">
+						  <h2 class="caption title">
+								Apple <span class="primary">Store <strong>Ipad</strong></span>
+							</h2>
+							<h4 class="caption subtitle">& Phone</h4>
+							<a class="caption button-radius" href="#"><span class="icon"></span>Compra ahora</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<!-- ./Slider -->
+    </div> <!-- End slider area -->
+    
+    <div class="promo-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo promo1">
+                        <i class="fa fa-refresh"></i>
+                        <p>30 días de regreso</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo promo2">
+                        <i class="fa fa-truck"></i>
+                        <p>Envío gratis</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo promo3">
+                        <i class="fa fa-lock"></i>
+                        <p>Pagos seguros</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo promo4">
+                        <i class="fa fa-gift"></i>
+                        <p>Nuevos Productos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End promo area -->
+    
+    
     
     
     

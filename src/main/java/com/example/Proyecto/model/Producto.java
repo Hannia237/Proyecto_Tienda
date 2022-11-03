@@ -18,7 +18,7 @@ public class Producto {
 	private String producto;
 	private String marca;
 	private String descripcion;
-	private String imagen ="";
+	private String imagen ="no-image";
 	private Double precio;
 	private Integer oferta;
 
