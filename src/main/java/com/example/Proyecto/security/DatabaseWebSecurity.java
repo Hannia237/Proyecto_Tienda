@@ -36,20 +36,23 @@ public class DatabaseWebSecurity extends WebSecurityConfigurerAdapter {
 	http.authorizeRequests()
 	// Los recursos estáticos no requieren autenticación
 	.antMatchers(
-		"/bootstrap/**",
-		"/images/**",
-		"/tinymce/**",
-		"/logos/**").permitAll()
+			"/bootstrap/**",
+			"/img/**",
+			"/tinymce/**",
+			"/js/**",
+			"/fonts/**",
+				"/logos/**",
+			"/css/**").permitAll()
 	// Las vistas públicas no requieren autenticación
 	.antMatchers("/",
 		"/signup",
 		"/search",
 		"/bcrypt/**",
-		"/vacantes/view/**").permitAll()
+		"/productos/view/**").permitAll()
 	
 	
 	// Asignar permisos a URLs por ROLES
-	.antMatchers("/vacantes/**").hasAnyAuthority("SUPERVISOR","ADMINISTRADOR")
+	.antMatchers("/productos/**").hasAnyAuthority("SUPERVISOR","ADMINISTRADOR")
 	.antMatchers("/categorias/**").hasAnyAuthority("SUPERVISOR","ADMINISTRADOR")
 	.antMatchers("/usuarios/**").hasAnyAuthority("ADMINISTRADOR")
 	
@@ -66,4 +69,4 @@ public class DatabaseWebSecurity extends WebSecurityConfigurerAdapter {
 	return new BCryptPasswordEncoder();
 	}
 	
-}		
+}	

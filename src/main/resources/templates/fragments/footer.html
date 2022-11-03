@@ -20,34 +20,31 @@
                         <h2 class="footer-wid-title">User Navigation </h2>
                         <ul>
                             <li><a href="#">Mi cuenta</a></li>
-                            <li><a href="#">Order history</a></li>
-                            <li><a href="#">Wishlist</a></li>
-                            <li><a href="#">Vendor contact</a></li>
-                            <li><a href="#">Front page</a></li>
+                            <li><a href="#">Ordenar historial</a></li>
+                            <li><a href="#">Lista de deseos</a></li>
+                            <li><a href="#">Contacto</a></li>
+                            <li><a href="#">Pagina principal</a></li>
                         </ul>                        
                     </div>
                 </div>
                 
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-menu">
-                        <h2 class="footer-wid-title">Categories</h2>
-                        <ul>
-                            <li><a th:href="@{/Categoria-Telefonos}">Télefono Móvil</a></li>
-                            <li><a href="#">Accesorios de casa</a></li>
-                            <li><a href="#">LED TV</a></li>
-                            <li><a href="#">Computadoras</a></li>
-                            <li><a href="#">Gadets</a></li>
+                        <h2 class="footer-wid-title">Categorías</h2>
+                        <ul th:each="categoria : ${categorias}">
+                            <li href="#" th:text="${categoria.nombre}">Télefono Móvil</li>
+           
                         </ul>                        
                     </div>
                 </div>
                 
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-newsletter">
-                        <h2 class="footer-wid-title">Newsletter</h2>
-                        <p>Sign up to our newsletter and get exclusive deals you wont find anywhere else straight to your inbox!</p>
+                        <h2 class="footer-wid-title">Boletín informativo</h2>
+                        <p>¡Suscríbase a nuestro boletín y obtenga ofertas exclusivas que no encontrará en ningún otro lugar directamente en su bandeja de entrada!</p>
                         <div class="newsletter-form">
                             <form action="#">
-                                <input type="email" placeholder="Type your email">
+                                <input type="email" placeholder="Escriba su E-mail">
                                 <input type="submit" value="Subscribe">
                             </form>
                         </div>
