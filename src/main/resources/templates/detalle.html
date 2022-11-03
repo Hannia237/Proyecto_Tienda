@@ -6,7 +6,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Product Page - Ustora Demo</title>
+    <link rel="icon" th:href="@{/img/LogoTareasCabecera.png}">
+    <title>Detalles del producto</title>
     
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
@@ -34,31 +35,108 @@
   <body>
    
     <header th:insert="fragments/header :: menu-principal"> </header>
+   
     
-     <main role="main">
-      <hr>
-      <div class="container"> 
-
-        <div class="row">
-          <div class="col-md-3">            
-            <img class="rounded mx-auto d-block" th:src="@{/logos/{img} (img=${producto.imagen}) }" alt="Generic placeholder image" width="220" height="220">            
-          </div>
-          <div class="col-md-9">
-            <div class="card">
-              <h4 class="card-header">Producto <strong th:text="${producto.nombre}"></strong></h4>              
-              <div class="card-body">
-                <h5 class="card-title"><strong>Categoría: </strong> <span th:text="${producto.categoria.nombre}"></span></h5>
-                <h6 class="card-title"><strong>Publicado: </strong> <span th:text="${producto.fecha}"></span></h6>                
-                <h6 class="card-title"><strong>Precio: </strong><span th:text="${producto.precio}"></span></h6>
-                <p class="card-text" th:text="${producto.descripcion}"></p> 
-                <a class="btn btn-primary" href="#" role="button" title="Quiero comprar este producto."><i class="fas fa-file" aria-hidden="true"></i> Comprar</a>                            
-              </div>
-            </div>  
-          </div>
+    <div class="product-big-title-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="product-bit-title text-center">
+                        <h2>Detalles</h2>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+    
+    
+    <div class="single-product-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+    
+                <div class="col-md-8">
+                    <div class="product-content-right">
+                        <div class="product-breadcroumb">
+                            <a th:href="@{/}">Inicio</a>
+                            <a  th:text="${producto.categoria.nombre}"> </a>
+                            <a th:text="${producto.nombre}">Sony Smart TV - 2015 </a> 
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="product-images">
+                                    <div class="product-main-img">
+                                        <img th:src="@{/img/{img} ( img=${producto.imagen} )  }" alt="" style=height:45rem>
+                                    </div>
+                                    
 
-      </div>
-    </main>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-6">
+                                <div class="product-inner">
+                                    <h2 class="product-name" th:text="${producto.nombre}"></h2>
+                                    <div class="product-inner-price">
+                                        <ins th:text="'Oferta: '+ ${producto.oferta== 1 ? 'SI' : 'NO'}"></ins> <ins th:text="'Precio: $'+ ${producto.precio}" >oferta</ins>
+                                    </div>    
+                                    
+                                    <form action="" class="cart">
+                                        <div class="quantity">
+                                            <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
+                                        </div>
+                                        <button class="add_to_cart_button" type="submit">Añadir al carrito</button>
+                                    </form>   
+                                    
+                                    
+                                    
+                                    <div role="tabpanel">
+                                        <ul class="product-tab" role="tablist">
+                                            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Descripción</a></li>
+                                            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Reseñas</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane fade in active" id="home">
+                                                <h2> Descripción</h2>  
+                                                <p th:text="${producto.descripcion}"></p>
+
+                                               
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane fade" id="profile">
+                                                <h2>Reviews</h2>
+                                                <div class="submit-review">
+                                                    <p><label for="name">Nombre</label> <input name="name" type="text"></p>
+                                                    <p><label for="email">Email</label> <input name="email" type="email"></p>
+                                                    <div class="rating-chooser">
+                                                        <p>Tu calificación</p>
+
+                                                        <div class="rating-wrap-post">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                        </div>
+                                                    </div>
+                                                    <p><label for="review">Tu reseña</label> <textarea name="review" id="" cols="30" rows="10"></textarea></p>
+                                                    <p><input type="submit" value="Enviar"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                 							<a class="add_to_cart_button" th:href="@{/}">Regresar</a>
+                        
+                        
+                       
+                                </div>                                    
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 <footer th:insert="fragments/footer :: pie-pagina" class="footer">

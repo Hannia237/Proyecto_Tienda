@@ -13,6 +13,7 @@
                         <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
                     </div>
                 </div>
+<<<<<<< HEAD
             </div>
             
             <div class="col-md-3 col-sm-6">
@@ -47,6 +48,42 @@
                             <input type="email" placeholder="Escriba su E-mail">
                             <input type="submit" value="Subscribe">
                         </form>
+=======
+                
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer-menu">
+                        <h2 class="footer-wid-title">User Navigation </h2>
+                        <ul>
+                            <li><a href="#">Mi cuenta</a></li>
+                            <li><a href="#">Ordenar historial</a></li>
+                            <li><a href="#">Lista de deseos</a></li>
+                            <li><a href="#">Contacto</a></li>
+                            <li><a href="#">Pagina principal</a></li>
+                        </ul>                        
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer-menu">
+                        <h2 class="footer-wid-title">Categorías</h2>
+                        <ul th:each="categoria : ${categorias}">
+                            <li href="#" th:text="${categoria.nombre}">Télefono Móvil</li>
+           
+                        </ul>                        
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer-newsletter">
+                        <h2 class="footer-wid-title">Boletín informativo</h2>
+                        <p>¡Suscríbase a nuestro boletín y obtenga ofertas exclusivas que no encontrará en ningún otro lugar directamente en su bandeja de entrada!</p>
+                        <div class="newsletter-form">
+                            <form action="#">
+                                <input type="email" placeholder="Escriba su E-mail">
+                                <input type="submit" value="Subscribe">
+                            </form>
+                        </div>
+>>>>>>> 9ce391f757243adbe5c7769103e6211efe71b0c8
                     </div>
                 </div>
             </div>
