@@ -1,19 +1,54 @@
-    <div th:fragment="pie-pagina" class="footer-top-area">
-        <div class="zigzag-bottom"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <div class="footer-about-us">
-                        <h2>u<span>Stora</span></h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis sunt id doloribus vero quam laborum quas alias dolores blanditiis iusto consequatur, modi aliquid eveniet eligendi iure eaque ipsam iste, pariatur omnis sint! Suscipit, debitis, quisquam. Laborum commodi veritatis magni at?</p>
-                        <div class="footer-social">
-                            <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
-                            <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
-                            <a href="#" target="_blank"><i class="fa fa-youtube"></i></a>
-                            <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
-                        </div>
+<div th:fragment="pie-pagina" class="footer-top-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="footer-about-us">
+                    <h2>u<span>Stora</span></h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis sunt id doloribus vero quam laborum quas alias dolores blanditiis iusto consequatur, modi aliquid eveniet eligendi iure eaque ipsam iste, pariatur omnis sint! Suscipit, debitis, quisquam. Laborum commodi veritatis magni at?</p>
+                    <div class="footer-social">
+                        <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fa fa-youtube"></i></a>
+                        <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
                     </div>
                 </div>
+<<<<<<< HEAD
+            </div>
+            
+            <div class="col-md-3 col-sm-6">
+                <div class="footer-menu">
+                    <h2 class="footer-wid-title">User Navigation </h2>
+                    <ul>
+                        <li><a href="#">Mi cuenta</a></li>
+                        <li><a href="#">Ordenar historial</a></li>
+                        <li><a href="#">Lista de deseos</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">Pagina principal</a></li>
+                    </ul>                        
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-6">
+                <div class="footer-menu">
+                    <h2 class="footer-wid-title">Categorías</h2>
+                    <ul th:each="categoria : ${categorias}">
+                        <li href="#" th:text="${categoria.nombre}">Télefono Móvil</li>
+       
+                    </ul>                        
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-6">
+                <div class="footer-newsletter">
+                    <h2 class="footer-wid-title">Boletín informativo</h2>
+                    <p>¡Suscríbase a nuestro boletín y obtenga ofertas exclusivas que no encontrará en ningún otro lugar directamente en su bandeja de entrada!</p>
+                    <div class="newsletter-form">
+                        <form action="#">
+                            <input type="email" placeholder="Escriba su E-mail">
+                            <input type="submit" value="Subscribe">
+                        </form>
+=======
                 
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-menu">
@@ -48,11 +83,12 @@
                                 <input type="submit" value="Subscribe">
                             </form>
                         </div>
+>>>>>>> 9ce391f757243adbe5c7769103e6211efe71b0c8
                     </div>
                 </div>
             </div>
         </div>
-    </div> <!-- End footer top area -->
-    
+    </div>
+</div> <!-- End footer top area -->
 
-   
+

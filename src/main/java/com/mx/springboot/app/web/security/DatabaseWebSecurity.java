@@ -1,4 +1,4 @@
-package com.example.Proyecto.security;
+package com.mx.springboot.app.web.security;
 
 import javax.sql.DataSource;
 
@@ -36,32 +36,20 @@ public class DatabaseWebSecurity extends WebSecurityConfigurerAdapter {
 	http.authorizeRequests()
 	// Los recursos estáticos no requieren autenticación
 	.antMatchers(
-<<<<<<< HEAD
-			"/bootstrap/**",
-			"/img/**",
-			"/tinymce/**",
-			"/js/**",
-			"/fonts/**",
-				"/logos/**",
-			"/css/**").permitAll()
-=======
 		"/bootstrap/**",
-		"/img/**",
+		"/images/**",
 		"/tinymce/**",
-		"/js/**",
-		"/fonts/**",
-		"/css/**").permitAll()
->>>>>>> 9528a363b9823622bdeae0ce0bf83141f60cf259
+		"/logos/**").permitAll()
 	// Las vistas públicas no requieren autenticación
 	.antMatchers("/",
-		"/singup",
+		"/signup",
 		"/search",
 		"/bcrypt/**",
-		"/productos/view/**").permitAll()
+		"/vacantes/view/**").permitAll()
 	
 	
 	// Asignar permisos a URLs por ROLES
-	.antMatchers("/productos/**").hasAnyAuthority("SUPERVISOR","ADMINISTRADOR")
+	.antMatchers("/prodcutos/**").hasAnyAuthority("SUPERVISOR","ADMINISTRADOR")
 	.antMatchers("/categorias/**").hasAnyAuthority("SUPERVISOR","ADMINISTRADOR")
 	.antMatchers("/usuarios/**").hasAnyAuthority("ADMINISTRADOR")
 	
@@ -78,4 +66,4 @@ public class DatabaseWebSecurity extends WebSecurityConfigurerAdapter {
 	return new BCryptPasswordEncoder();
 	}
 	
-}	
+}		
