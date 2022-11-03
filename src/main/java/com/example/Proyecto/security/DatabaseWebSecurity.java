@@ -36,7 +36,6 @@ public class DatabaseWebSecurity extends WebSecurityConfigurerAdapter {
 	http.authorizeRequests()
 	// Los recursos estáticos no requieren autenticación
 	.antMatchers(
-<<<<<<< HEAD
 			"/bootstrap/**",
 			"/img/**",
 			"/tinymce/**",
@@ -44,17 +43,9 @@ public class DatabaseWebSecurity extends WebSecurityConfigurerAdapter {
 			"/fonts/**",
 				"/logos/**",
 			"/css/**").permitAll()
-=======
-		"/bootstrap/**",
-		"/img/**",
-		"/tinymce/**",
-		"/js/**",
-		"/fonts/**",
-		"/css/**").permitAll()
->>>>>>> 9528a363b9823622bdeae0ce0bf83141f60cf259
 	// Las vistas públicas no requieren autenticación
 	.antMatchers("/",
-		"/singup",
+		"/signup",
 		"/search",
 		"/bcrypt/**",
 		"/productos/view/**").permitAll()
