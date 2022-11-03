@@ -7,7 +7,7 @@
                         <ul>
                             <li><a href="#"><i class="fa fa-user"></i> Mi cuenta</a></li>
                             <li><a href="#"><i class="fa fa-shopping-cart"></i> Mi carrito</a></li>
-                            <li><a href="#"><i class="fa fa-user"></i>Inicar sesión</a></li>
+                            <li><a th:href="@{/formLogin}"><i class="fa fa-user"></i>Inicar sesión</a></li>
                         </ul>
                     </div>
                 </div>
@@ -16,7 +16,7 @@
                     <div class="header-right">
                         <ul class="list-unstyled list-inline">
                             <li class="dropdown dropdown-small">
-                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">currency :</span><span class="value">USD </span><b class="caret"></b></a>
+                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">Moneda :</span><span class="value">USD </span><b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#">USD</a></li>
                                     <li><a href="#">INR</a></li>
@@ -25,11 +25,11 @@
                             </li>
 
                             <li class="dropdown dropdown-small">
-                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">language :</span><span class="value">English </span><b class="caret"></b></a>
+                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">language :</span><span class="value">Español </span><b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">English</a></li>
-                                    <li><a href="#">French</a></li>
-                                    <li><a href="#">German</a></li>
+                                    <li><a href="#">Español</a></li>
+                                    <li><a href="#">Francés</a></li>
+                                    <li><a href="#">Alemán</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -50,7 +50,7 @@
                 
                 <div class="col-sm-6">
                     <div class="shopping-item">
-                        <a href="">Cart - <span class="cart-amunt">$100</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
+                        <a href="">Carrito - <span class="cart-amunt">$100</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
                     </div>
                 </div>
             </div>
@@ -72,9 +72,9 @@
                     <ul class="nav navbar-nav">
                         <li><a href="/">Inicio</a></li>
                         <li><a href="#">Carrito</a></li>
-                        <li><a th:href="@{/categorias/index}">Categoria</a></li>
-                        <li><a th:href="@{/productos/index}">Productos</a></li>
-                        <li><a th:href="@{/usuarios/index}">Usuarios</a></li>
+                        <li><a th:href="@{/categorias/index}" sec:authorize="hasAnyAuthority('SUPERVISOR','ADMINISTRADOR')">Categorias</a></li>
+                        <li><a th:href="@{/productos/index}" sec:authorize="hasAnyAuthority('SUPERVISOR','ADMINISTRADOR')">Productos</a></li>
+                        <li><a th:href="@{/usuarios/index}" sec:authorize="hasAnyAuthority('ADMINISTRADOR')">Usuarios</a></li>
                         
                         
                     </ul>
