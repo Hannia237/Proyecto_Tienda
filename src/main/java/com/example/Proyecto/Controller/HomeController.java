@@ -90,6 +90,27 @@ public class HomeController {
 		return "index";
 	}
 	
+	@GetMapping("/index")
+	public String mostrarIndex(Authentication auth, HttpSession session) {
+		String username = auth.getName();
+		System.out.println(username + " ha entrado al mundo");
+		
+		for(GrantedAuthority rol: auth.getAuthorities()) {
+			System.out.println("ROL: " + rol.getAuthority());
+			
+			if (session.getAttribute("usuario") == null) {
+			
+			Usuario usuario = serviceUsuarios.buscarPorUsername(username);
+			usuario.setPassword(null);
+			System.out.println("Usuario: " + usuario);
+			session.setAttribute("usuario", usuario);
+			}
+			
+		}
+		
+		return "redirect:/";
+	}
+	
 	@GetMapping("/signup")
 	public String registrarse(Usuario usuario) {
 		return "usuarios/formRegistro";

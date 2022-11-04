@@ -3,6 +3,8 @@ package com.example.Proyecto.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +28,13 @@ public class UsuariosController {
 		List<Usuario> lista = serviceUsuarios.buscarTodos();
 		model.addAttribute("usuarios", lista);
     	return "usuarios/listUsuarios";
+	}
+	
+	@GetMapping(value = "/indexPaginate")
+	public String mostrarIndexPaginado(Model model, Pageable page) {
+		Page<Usuario> lista = serviceUsuarios.buscarTodas(page);
+		model.addAttribute("usuarios", lista);
+		return "usuarios/listUsuarios";
 	}
     
     @GetMapping("/delete/{id}")

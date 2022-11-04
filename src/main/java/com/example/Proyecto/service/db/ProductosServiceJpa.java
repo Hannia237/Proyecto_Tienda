@@ -6,6 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.example.Proyecto.model.Producto;
@@ -58,6 +60,11 @@ public class ProductosServiceJpa implements IProductosService {
 	@Override
 	public List<Producto> buscarOferta() {
 		return productosRepo.findByOferta(1);
+	}
+
+	@Override
+	public Page<Producto> buscarTodas(Pageable page) {
+		return productosRepo.findAll(page);
 	}
 
 }

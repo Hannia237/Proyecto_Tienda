@@ -5,38 +5,23 @@
                 <div class="col-md-8">
                     <div class="user-menu">
                         <ul>
-                            <li><a href="#"><i class="fa fa-user"></i> Mi cuenta</a></li>
-                            <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Mi carrito</a></li>
-                             <li><a th:href="@{/signup}"><i class="fa fa-user"></i>Registrarse</a></li>
-                            <li><a th:href="@{/index}"><i class="fa fa-user"></i>Iniciar sesión</a></li>
-                            	
-                         
-                            
-                            
-                             
+                            <div sec:authorize="isAnonymous()"> 
+                                <li><a href="#"><i class="fa fa-user"></i> Mi cuenta</a></li>
+                            	<li><a href="#"><i class="fa fa-shopping-cart"></i> Mi carrito</a></li>
+                            	<li><a th:href="@{/signup}"><i class="fa fa-user"></i>Registrarse</a></li>
+                            	<li><a th:href="@{/index}"><i class="fa fa-user"></i>Iniciar sesión</a></li>
+                            </div>                   
                         </ul>
-                    </div>
-                    
-                   
-                   
-                   
-                   
-                   
-                   
-                   
+                    </div>    
                 </div>
                 
                 <div class="col-md-4">
                     <div class="header-right">
                         <ul class="list-unstyled list-inline">
-                          
-
- 
-
                              <div sec:authorize="isAuthenticated()">
-		<span class="text-light">Bienvenido</span>&nbsp;<span class="text-light" sec:authentication="name"></span>&nbsp;
-		<a  th:href="@{/logout}">Salir</a>
-	</div>
+								  <span class="text-light">Bienvenido</span>&nbsp;<span class="text-light" sec:authentication="name"></span>&nbsp;
+		                          <a th:href="@{/logout}">Salir</a>
+	                         </div>
                         </ul>
                     </div>
                 </div>
@@ -49,7 +34,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="logo">
-                        <h1><a href="/index.html"><img th:src="@{/img/logo.png}"></a></h1>
+                        <h1><a href="/"><img th:src="@{/img/logo.png}"></a></h1>
                     </div>
                 </div>
                 
@@ -84,21 +69,16 @@
                         <li><a href="#">Carrito</a></li>
                         
                          <li class="nav-item" sec:authorize="hasAnyAuthority('SUPERVISOR','ADMINISTRADOR')">
-	      <a class="nav-link" th:href="@{/productos/index}">Productos</a>
-	   </li>
-	   <li class="nav-item" sec:authorize="hasAnyAuthority('SUPERVISOR','ADMINISTRADOR')">
-	      <a class="nav-link" th:href="@{/categorias/index}">Categorías</a>
-	   </li>
-	   <li class="nav-item" sec:authorize="hasAnyAuthority('ADMINISTRADOR')">
-	      <a class="nav-link" th:href="@{/usuarios/index}" >Usuarios</a>
-	   </li>
-                        
+						      <a class="nav-link" th:href="@{/productos/indexPaginate}">Productos</a>
+						 </li>
+						 <li class="nav-item" sec:authorize="hasAnyAuthority('SUPERVISOR','ADMINISTRADOR')">
+						      <a class="nav-link" th:href="@{/categorias/indexPaginate}">Categorias</a>
+						 </li>
+						 <li class="nav-item" sec:authorize="hasAnyAuthority('ADMINISTRADOR')">
+						      <a class="nav-link" th:href="@{/usuarios/indexPaginate}" >Usuarios</a>
+						 </li>
                     </ul>
                 </div>  
-                
-                
-                
-                
         </div>
     </div> <!-- End mainmenu area -->
  </div>
